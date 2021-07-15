@@ -34,3 +34,4 @@ if (comparism1 == comparism2) {
 } else {
   console.log(`${comparism2} is greater than ${comparism1}`);
 }
+

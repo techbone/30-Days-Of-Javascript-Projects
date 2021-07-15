@@ -2310,3 +2310,7 @@ console.log('max: ', statistics.max(ages))
 console.log('count: ', statistics.count(ages))
 console.log('percentile: ', statistics.percentile(ages))
 console.log('frequencyDistribution: ', statistics.frequencyDistribution(ages))
+
+const t = [1, 2, 3, 4, 5, 6, 7, 8, 9,]
+const [first, second, ...rest] = t
+console.log(first,second)
