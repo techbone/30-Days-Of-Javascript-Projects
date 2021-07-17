@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const bodyEl = document.querySelector("body");
+      bodyEl.style.fontFamily = "Avenir, Sego UI, Ubuntu, Sans-serif";
+      bodyEl.style.justifyContent = "center";
+      bodyEl.style.alignItems = "Center";
+
+      const containerEl = document.createElement("div");
+      containerEl.style.display = "flex";
+      containerEl.style.gridGap = "5px";
+
+      const secondEL = document.createElement("div");
+      secondEL.style.display = "flex";
+      secondEL.style.gridGap = "5px";
+
+      const thirdEl = document.createElement("div");
+      thirdEl.style.display = "flex";
+      thirdEl.style.gridGap = "5px";
+
+      const displays = [
+        {
+          title: "# HTML",
+          color: "#693860",
+        },
+        {
+          title: "# HTML5",
+          color: "#009841",
+        },
+        {
+          title: "# CSS",
+          color: "#E2EC4E",
+        },
+        {
+          title: "# CSS3",
+          color: "#CD587D",
+        },
+        {
+          title: "# JS",
+          color: "#E74D58",
+        },
+        {
+          title: "# JavaScript",
+          color: "#23DE8B",
+        },
+        {
+          title: "# ES6",
+          color: "#DEFD8D",
+        },
+        {
+          title: "# Promise",
+          color: "#E3E114",
+        },
+      ];
+      const asyncs = [
+        {
+          title: "# async await ",
+          color: "#D91892",
+        },
+        {
+          title: "# Database",
+          color: "#E0A9CB",
+        },
+        {
+          title: "# React",
+          color: "#FFFF00",
+        },
+        {
+          title: "# React Hooks",
+          color: "#2BAF07",
+        },
+        {
+          title: "#Context API",
+          color: "#CABE66",
+        },
+      ];
+      const reacts = [
+        {
+          title: "# React Router",
+          color: "#1535BD",
+        },
+        {
+          title: "# Redux",
+          color: "#01A20F",
+        },
+        {
+          title: "# Node",
+          color: "#21F0BC",
+        },
+        {
+          title: "# MongoDB",
+          color: "#6C9284",
+        },
+        {
+          title: "# SQL",
+          color: "#F05167",
+        },
+        {
+          title: "# APi",
+          color: "#757C7F",
+        },
+        {
+          title: "# DOM",
+          color: "#5D9E6F",
+        },
+      ];
+      const datas = [
+        {
+          title: "# Data Science",
+          color: "#C94B65",
+        },
+        {
+          title: "# MERN",
+          color: "#265712",
+        },
+        {
+          title: "# Python",
+          color: "#B8C9DB",
+        },
+        {
+          title: "# Flask",
+          color: "#A79AE2",
+        },
+        {
+          title: "# Statistics",
+          color: "#844445",
+        },
+        {
+          title: "# linear Algebra",
+          color: "#10C619",
+        },
+      ];
+      const numpys = [
+        {
+          title: "# Numpy",
+          color: "#A2552D",
+        },
+        {
+          title: "# Pandas",
+          color: "#A2552D",
+        },
+        {
+          title: "# Scipy",
+          color: "#9B8A68",
+        },
+        {
+          title: "# Scikit-learn",
+          color: "#FCE84C",
+        },
+        {
+          title: "# Visualation",
+          color: "#88CCE6",
+        },
+        {
+          title: "# D3.js",
+          color: "#66DE30",
+        },
+      ];
+      displays.forEach((display) => {
+        const nameEl = document.createElement("span");
+        nameEl.setAttribute("id", "lang");
+        nameEl.style.backgroundColor = display.color;
+        nameEl.style.padding = ".1rem 1rem";
+        nameEl.style.display = "flex";
+        nameEl.style.fontSize = "15px";
+        nameEl.style.fontWeight = 500;
+        nameEl.style.width = "fit - content";
+        nameEl.style.borderRadius = "1rem";
+        nameEl.innerHTML = `
+      <span>${display.title}</span>
+    `;
+        containerEl.appendChild(nameEl);
+      });
+      asyncs.forEach((async) => {
+        const asyncEl = document.createElement("span");
+        asyncEl.setAttribute("id", "async");
+        asyncEl.style.backgroundColor = async.color;
+        asyncEl.style.padding = ".5rem 1.5rem";
+        asyncEl.style.display = "flex";
+        asyncEl.style.fontSize = "15px";
+        asyncEl.style.fontWeight = 500;
+        asyncEl.style.width = "fit - content";
+        asyncEl.style.borderRadius = "1rem";
+        asyncEl.style.marginTop = "1rem";
+        asyncEl.innerHTML = `
+      <span>${async.title}</span>
+    `;
+        secondEL.appendChild(asyncEl);
+      });
+
+      //   reacts.forEach((react) => {
+      //     const reactEl = document.createElement("span");
+      //     reactEl.setAttribute("id", "async");
+      //     reactEl.style.backgroundColor = react.color;
+      //     reactEl.style.padding = ".5rem 1.5rem";
+      //     reactEl.style.display = "flex";
+      //     reactEl.style.fontSize = "15px";
+      //     reactEl.style.fontWeight = 500;
+      //     reactEl.style.width = "fit - content";
+      //     reactEl.style.borderRadius = "1rem";
+      //     reactEl.style.marginTop = "1rem";
+      //     reactEl.innerHTML = `
+      //   <span>${react.title}</span>
+      // `;
+      //     thirdEL.appendChild(reactEl);
+      //   });
+
+      bodyEl.appendChild(containerEl);
+      bodyEl.appendChild(secondEL);
+      // bodyEl.appendChild(thirdEl);
+    </script>
+  </body>
+</html>
