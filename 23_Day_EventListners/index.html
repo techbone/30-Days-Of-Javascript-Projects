@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Generator</title>
+  </head>
+  <body>
+    <h1>Number Generator</h1>
+    <h3>30DaysOfJavaScript:DOM Day 3</h3>
+    <h4>Author:Asabeneh Yetayeh</h4>
+
+    <div class="input-con">
+      <p class="errorText"></p>
+      <input type="text" name="" placeholder="Generate more number..." />
+      <button>Generate numbers</button>
+    </div>
+
+    <script>
+      function isPrime(n) {
+        if (n === 0 || n === 1) return false;
+        for (let i = n - 1; i > 1; i--) {
+          if (n % i === 0) return false;
+        }
+        return true;
+      }
+      //Selectors
+      const bodyEl = document.querySelector("body");
+      const h1El = document.querySelector("h1");
+      const h3El = document.querySelector("h3");
+      const h4El = document.querySelector("h4");
+      const inputCon = document.querySelector(".input-con");
+      const input = document.querySelector("input");
+      const button = document.querySelector("button");
+      const containerEl = document.createElement("div");
+      const errorEl = document.querySelector(".errorText");
+
+      //Styling
+      bodyEl.style.fontFamily = "Avenir, Sego UI, Ubuntu, Sans-serif";
+      bodyEl.style.display = "flex";
+      bodyEl.style.flexDirection = "column";
+      bodyEl.style.justifyContent = "center";
+      bodyEl.style.alignItems = "center";
+
+      h1El.style.color = "green";
+
+      h3El.style.fontWeight = "lighter";
+      h3El.style.marginTop = "-1rem";
+
+      h4El.style.marginTop = "-1.3rem";
+
+      inputCon.style.width = "70%";
+      inputCon.display = "flex";
+
+      input.style.width = "70%";
+      input.style.height = "1.5rem";
+      input.style.marginLeft = "-0.5rem";
+      input.style.outline = "none";
+      // (trying to change the outline color)input.style.outline = "green";
+
+      button.style.background = "lightgreen";
+      button.style.height = "2rem";
+      button.style.marginLeft = "15px";
+      button.style.color = "grey";
+
+      // containerEl.setAttribute("id", "container");
+
+      containerEl.style.display = "grid";
+      containerEl.style.gridTemplateColumns = "repeat(6, 1fr)";
+      containerEl.style.width = "50rem";
+      containerEl.style.margin = "1rem auto";
+      containerEl.style.gridGap = "5px";
+      bodyEl.appendChild(containerEl);
+
+      function generateNums(max = 20) {
+        containerEl.innerHTML = "";
+        Array.from(Array(max).keys()).forEach((num) => {
+          const numEl = document.createElement("div");
+          numEl.style.height = "3rem";
+          numEl.style.display = "grid";
+          numEl.style.placeItems = "center";
+          numEl.style.color = "white";
+          numEl.style.fontSize = "1.5rem";
+          numEl.style.fontWeight = 600;
+          numEl.style.backgroundColor = isPrime(num)
+            ? "red"
+            : num % 2
+            ? "orange"
+            : "green";
+          numEl.textContent = num;
+          containerEl.appendChild(numEl);
+        });
+      }
+
+      generateNums();
+
+      document.querySelector("button").addEventListener("click", () => {
+        let max = document.querySelector("input").value.trim();
+
+        if (!max) {
+          errorEl.textContent = "No value Entered, Input a Number to continue";
+          errorEl.style.color = "red";
+          setTimeout(() => {
+            errorEl.textContent = "";
+          }, 1000);
+          return;
+        }
+
+        max = parseInt(max);
+
+        if (isNaN(max)) {
+          errorEl.textContent = "Invalid Input, Enter a Number";
+          errorEl.style.color = "red";
+          setTimeout(() => {
+            errorEl.textContent = "";
+          }, 1000);
+          return;
+        }
+
+        generateNums(max);
+      });
+    </script>
+  </body>
+</html>
