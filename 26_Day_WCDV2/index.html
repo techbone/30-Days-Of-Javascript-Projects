@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Countries Visualization</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .upper {
+        background-image: url("./globe-2.jpg");
+        background-blend-mode: multiply;
+        background-color: #374c63cf;
+        height: 28rem;
+        background-size: cover;
+        background-position: center;
+        padding-top: 8rem;
+      }
+      header {
+        text-align: center;
+        color: white;
+      }
+      h1 {
+        letter-spacing: 1rem;
+        font-size: 2.4rem;
+      }
+      input {
+        display: flex;
+        border-radius: 50px;
+        outline: none;
+        width: 20rem;
+        height: 2rem;
+        /* margin: 1.5rem auto; */
+        border-color: lightsteelblue;
+      }
+      .lower {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-row-gap: 1rem;
+        padding: 4rem 10rem;
+        place-items: center;
+        background-color: lightyellow;
+      }
+      button {
+        color: white;
+        background-color: purple;
+        padding: 0.5rem;
+        outline: none;
+      }
+      /* button.active {
+        background-color: red;
+      } */
+      /* .arrow {
+        height: 0.9rem;
+        width: 0.2rem;
+        background-color: white;
+        transform: rotate(180deg);
+      } */
+      /* .search {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      } */
+      center {
+        display: flex;
+        justify-content: center;
+        grid-gap: 0.5rem;
+      }
+      .up {
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+      }
+      .search{
+        padding-top:2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap:1rem;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="upper">
+      <header>
+        <h1>WORLD COUNTRIES LIST</h1>
+        <h3>Total Number of Countries: <span id="count"></span></h3>
+        <p></p>
+      </header>
+      <center>
+        <button>STARTING WORD</button>
+        <button>SEARCH WITH ANY WORD</button>
+        <button class="sort">
+          <!-- <img class="arrow" src="./images/arrow-up-line.svg" alt="" /> -->
+          <div class="up"><span>A</span> <span>Z</span></div>
+        </button>
+      </center>
+      <div class="search">
+        <input type="text" placeholder="search country..." />
+        <img src="./search-line.svg" alt="musa" />
+      </div>
+    </div>
+    <div class="lower"></div>
+    <script src="./main.js"></script>
+    <script>
+      document.getElementById("count").textContent = countries.length;
+      const buttonEl = document.querySelectorAll("button");
+      const lowerEl = document.querySelector(".lower");
+      const sortButtonEl = document.querySelector(".sort");
+      // const arrowEl = document.querySelector(".arrow")
+      let order = "alphabetical";
+      let rotate = 180;
+      let searchBy = "";
+      let countryDisplayed;
+      const inputEl = document.querySelector("input");
+      countryDisplayed = countries;
+      const sortCountry = (data, order) => {
+        let sortedCountry = data.sort();
+        sortedCountry =
+          order === "alphabetical" ? sortedCountry : sortedCountry.reverse();
+        lowerEl.innerHTML = "";
+        sortedCountry.forEach((item) => {
+          const newEl = document.createElement("div");
+          newEl.textContent = item;
+          newEl.style.backgroundImage = `url("./map_image.jpg")
+           `;
+          newEl.style.backgroundSize = "cover";
+          newEl.style.height = "10rem";
+          newEl.style.color = "white";
+          newEl.style.fontSize = "1.3rem";
+          newEl.style.display = "grid";
+          newEl.style.textAlign = "center";
+          newEl.style.placeItems = "center";
+          newEl.style.backgroundBlendMode = "multiply";
+          newEl.style.backgroundColor = "#374c63cf";
+          newEl.style.borderRadius = "5px";
+          newEl.style.width = "8rem";
+          lowerEl.appendChild(newEl);
+        });
+      };
+      const searchCountryBy = (by, inputValue) => {
+        if (by === "starting word") {
+          countryDisplayed = countries.filter((country) =>
+            country.toLocaleLowerCase().startsWith(inputValue.toLowerCase())
+          );
+        } else {
+          countryDisplayed = countries.filter((country) =>
+            country.toLocaleLowerCase().includes(inputValue.toLowerCase())
+          );
+        }
+        sortCountry(countryDisplayed, order);
+      };
+      sortButtonEl.addEventListener("click", () => {
+        lowerEl.innerHTML = "";
+        rotate = rotate === 180 ? 0 : 180;
+        arrowEl.style.transform = `rotate(${rotate}deg)`;
+        order = order === "alphabetical" ? "reverse" : "alphabetical";
+        sortCountry(countryDisplayed, order);
+      });
+      buttonEl.forEach((btn, btnIndex) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const buttonText = btn.textContent.toLowerCase();
+          if (buttonText !== searchBy && btnIndex !== 2) {
+            searchBy = buttonText;
+            // buttonEl.forEach((item) => {
+            //   item.classList.contains("active")
+            //     ? item.classList.remove("active")
+            //     : "";
+            // });
+            // btn.classList.add("active");
+          }
+        });
+      });
+      inputEl.addEventListener("input", (e) => {
+        if (searchBy) {
+          searchCountryBy(searchBy, e.target.value);
+        }
+      });
+      sortCountry(countries, order);
+    </script>
+  </body>
+</html>
