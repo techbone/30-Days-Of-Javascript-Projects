@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>portfolio</title>
+  </head>
+  <body>
+    <style>
+      .skill-con {
+        height: 6rem;
+        width: 90%;
+        background-color: #eddfde;
+        display: flex;
+        align-items: center;
+      }
+      .lang-con {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 1rem 4rem;
+        grid-gap: 1rem;
+        margin-left: 1rem;
+      }
+      .lang-con > span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 10rem;
+        width: 12rem;
+      }
+      .lang-con > span:hover {
+        background-color: #ecdede;
+        box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.1);
+        /* height: 10.5rem; */
+        width: 12.7rem;
+      }
+      #teach {
+        animation: fadeout 2s ease-in-out infinite;
+        text-transform: capitalize;
+      }
+      @keyframes fadeout {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .motivate {
+        animation: motion 5s linear infinite;
+        text-transform: capitalize;
+      }
+      @keyframes motion {
+        0% {
+          margin-left: 0.5rem;
+        }
+        50% {
+          margin-left: 4rem;
+        }
+        100% {
+          margin-left: 5rem;
+        }
+      }
+      .image {
+        transition: all ease-out;
+        margin-left: 0.5rem;
+      }
+      .aspire {
+        animation: motion 5s linear infinite;
+        text-transform: capitalize;
+      }
+      .languages {
+        background-color: #f7f8f8;
+        font-weight: lighter;
+      }
+    </style>
+    <h1>Asabeneh Yetayeh</h1>
+
+    <div class="skill-con">
+      <img class="image" src="./images/image1.svg" alt="my skills" />
+      <span class="aspire"></span>
+    </div>
+
+    <p>
+      I am Asabeneh Yetaye,I am an instructor,developer,motivator and content
+      creator.I love educating people and creating educational<br />materials.In
+      January 2019,I also craeted a teaching material
+      <strong>Javascript For Everyone</strong>. In December 2019,I created
+      <strong>30Days Of Python</strong><br />challenge and in January 2020
+      <strong>30 Days Of Javascript</strong> challenge.
+    </p>
+
+    <div class="lang-con">
+      <span class="languages">JAVASCRIPT FOR EVERYONE</span>
+      <span class="languages">30DAYS OF PTYHON</span>
+      <span class="languages">30DAYS OF JAVASCRIPT</span>
+    </div>
+    <p>The technologies i teach <span id="teach">java</span></p>
+  </body>
+
+  <script>
+    //selectors
+    const bodyEl = document.querySelector("body");
+    const h1El = document.querySelector("h1");
+    const teachEl = document.getElementById("teach");
+    const aspireEl = document.querySelector(".aspire");
+    const imageEl = document.querySelector(".image");
+
+    //styling
+    bodyEl.style.paddingLeft = "19rem";
+    bodyEl.style.paddingRight = "19rem";
+    bodyEl.style.paddingTop = "4rem";
+    bodyEl.style.margin = "0";
+    bodyEl.style.fontFamily = "Ubuntu,Sans-serif";
+
+    h1El.style.fontSize = "4rem";
+    h1El.style.letterSpacing = "1rem";
+
+    teachEl.style.fontSize = "2rem";
+
+    randomColor = () => {
+      return Math.floor(Math.random() * 256);
+    };
+    const skills =
+      "javascript,mongodb,react,phython,pandas,html,node,numpy,redux".split(
+        ","
+      );
+    let i = 0;
+
+    setInterval(() => {
+      teachEl.textContent = skills[i].toUpperCase();
+      i = i === skills.length - 1 ? 0 : i + 1;
+      teachEl.style.color = `rgb(${randomColor()},${randomColor()},${randomColor()})`;
+    }, 2000);
+    let j = 0;
+    const teachings =
+      "Content Creator,Motivational Speaker,Programmer,Instructor,Educator".split(
+        ","
+      );
+    setInterval(() => {
+      aspireEl.textContent = teachings[i];
+      imageEl.setAttribute("src", `./images/image${i}.svg`);
+      i = i === teachings.length - 1 ? 0 : j + 1;
+      console.log(aspireEl.textContent);
+    }, 5000);
+  </script>
+</html>
