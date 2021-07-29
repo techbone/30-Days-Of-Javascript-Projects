@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>30DaysOfPython Challenge Done</li>
+      <li>30DaysOfJavaScript Challenge Done</li>
+      <li>30DaysOfReact Challenge Coming</li>
+      <li>30DaysOfFullStack Challenge Coming</li>
+      <li>30DaysOfDataAnalysis Challenge Coming</li>
+      <li>30DaysOfReactNative Challenge Coming</li>
+      <li>30DaysOfMachineLearning Challenge Coming</li>
+    </ul>
+
+    <button>Click on me</button>
+    <script>
+      bodyEl = document.querySelector("body");
+      const h1 = document.createElement("h1");
+      h1.classList.add = "name";
+      h1.textContent = "I love him and he knows";
+      h1.style.color = "blue";
+      h1.fontSize = "3rem";
+
+      bodyEl.appendChild(h1);
+
+      let title;
+      for (let i = 0; i < 3; i++) {
+        title = document.createElement("h1");
+        title.className = "title";
+        title.style.fontSize = "24px";
+        title.textContent = "musa muhhamd";
+        bodyEl.appendChild(title);
+      }
+
+      // let h2;
+      for (let i = 0; i < 3; i++) {
+        h2 = document.createElement("h2");
+        h2.className = "title";
+        h2.style.fontSize = "24px";
+        h2.textContent = "I love my woman";
+        document.body.appendChild(h2);
+      }
+
+      for (let i = 1; i <= 5; i++) {
+        h3 = document.createElement("h3");
+        h3.textContent = "Shiver me timbers";
+        h3.textContent += " musa";
+        h3.style.fontSize = "2rem";
+        h3.style.textShadow = "3px 3px red";
+        bodyEl.appendChild(h3);
+      }
+
+      const ul = document.querySelector("ul");
+      const lists = document.querySelectorAll("li");
+      // for (const list of lists) {
+      //   ul.removeChild(list);
+      // }
+      ul.innerHTML = "";
+
+      class car {
+        constructor(name, engineCondition, product, wheels) {
+          this.name = name;
+          this.engineCondition = engineCondition;
+          this.product = product;
+          this.wheels = wheels;
+        }
+        carInfo() {
+          console.log(
+            `the name of the car is ${this.name},it's a product of ${this.product},the engine is in a ${this.engineCondition} condition and it has ${this.wheels} wheels.`
+          );
+        }
+      }
+
+      const chevrollet = new car("Chevrollet", "good", "toyota", 4);
+      console.log(chevrollet);
+      chevrollet.carInfo();
+
+      const tesla = new car("Tesla", "bad", "toyota", 5);
+      console.log(tesla);
+      tesla.carInfo();
+
+      class aeroplane extends car {
+        constructor(name, engineCondition, product, wheels, noOfWings) {
+          super(name, engineCondition, product, wheels);
+          this.noOfWings = noOfWings;
+        }
+        aeroplaneInfo() {
+          console.log(
+            `the name of the aeroplane is ${this.name},it's a product of ${this.product},the engine is in a ${this.engineCondition} condition,it has ${this.wheels} wheels and lastly it also ${this.noOfWings} wings.`
+          );
+        }
+      }
+
+      const overland = new aeroplane("overland", "excellent", "british", 2, 2);
+      console.log(overland);
+
+      const add = (a, b) => a + b;
+      console.log(add(2, 3));
+    </script>
+  </body>
+</html>
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class</title>
+  </head>
+  <body>
+    <script>
+      class student {
+        constructor(name, age, sex, religion, country) {
+          this.name = name;
+          this.age = age;
+          this.sex = sex;
+          this.religion = religion;
+          this.country = country;
+        }
+        studentInfo() {
+          console.log(
+            `My name is ${this.name},A ${this.sex}I am from ${
+              this.country
+            },I am ${this.age} years old and i am also a practicing ${
+              (this, religion)
+            }  `
+          );
+        }
+      }
+      const add = (a, b) => a + b;
+      let sum = add(1 + 1);
+      console.log(`the answer is ${add(1, 1)} `);
+    </script>
+  </body>
+</html> -->
