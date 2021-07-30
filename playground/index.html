@@ -101,6 +101,25 @@
 
       const add = (a, b) => a + b;
       console.log(add(2, 3));
+
+      class student {
+        constructor(name, age, sex, religion, country) {
+          this.name = name;
+          this.age = age;
+          this.sex = sex;
+          this.religion = religion;
+          this.country = country;
+        }
+        studentInfo() {
+          console.log(
+            `My name is ${this.name},A ${this.sex}I am from ${
+              this.country
+            },I am ${this.age} years old and i am also a practicing ${
+              (this, religion)
+            }  `
+          );
+        }
+      }
     </script>
   </body>
 </html>
