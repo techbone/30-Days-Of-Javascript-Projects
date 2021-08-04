@@ -140,10 +140,25 @@
       // console.log(b);
       // console.log(area());
 
-      const alphabets = ["a", "e", "i", "o", "u", "r", "s", "t", "z"];
+      const alphabets = [
+        "a",
+        "e",
+        "i",
+        "o",
+        "u",
+        "r",
+        "s",
+        "t",
+        "z",
+        "1",
+        "2",
+        "3 ",
+        "4",
+        "5",
+      ];
 
       const aOrb = () => {
-        switch (alphabets[5]) {
+        switch (alphabets[10]) {
           case "a":
           case "e":
           case "i":
@@ -157,6 +172,14 @@
           case "t":
           case "z":
             return "B";
+            break;
+
+          case "1":
+          case "2":
+          case "3":
+          case "4":
+          case "5":
+            return "C";
         }
       };
       console.log(aOrb());
