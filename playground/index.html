@@ -183,6 +183,20 @@
         }
       };
       console.log(aOrb());
+
+      //setter  function test
+      const batchA = {
+        set current(name) {
+          this.log.push(name);
+        },
+        log: [],
+      };
+
+      batchA.current = "Musa";
+      batchA.current = "Muzammil";
+      batchA.current = "Muhammad";
+
+      console.log(batchA.log);
     </script>
   </body>
 </html>
