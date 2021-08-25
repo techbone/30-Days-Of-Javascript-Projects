@@ -229,6 +229,25 @@
 
       const summation = (a, b) => ({ The_Result_is: a * b });
       console.log(summation(10, 10));
+
+      let names = [
+        "musa",
+        "etudaye",
+        "ahmad",
+        "techie",
+        "youkoso",
+        "uso",
+        "masaka",
+      ];
+      const sortedNames = names.filter((name) => name.length > 4);
+      console.log(sortedNames);
+
+      //a function that allows u to create unique id for each number and name in the backend of phone book
+      const generateId = () => {
+        const maxId =
+          persons.length > 0 ? Math.max(...persons.map((n) => n.id)) : 0;
+        return maxId + 1;
+      };
     </script>
   </body>
 </html>
