@@ -240,6 +240,15 @@
           persons.length > 0 ? Math.max(...persons.map((n) => n.id)) : 0;
         return maxId + 1;
       };
+
+      //delete function without using mongoose
+
+      // app.delete("/api/persons/:id", (request, response) => {
+      //   const id = Number(request.params.id);
+      //   persons = Person.filter((person) => person.id !== id);
+
+      //   response.status(204).end();
+      // });
     </script>
   </body>
 </html>

@@ -8,7 +8,7 @@
 //     return this.Bookname + '' + this.pages + "" + this.Author
 //   }
 //   getBookName() {
-//    return this.BookName 
+//    return this.BookName
 //   }
 //   getBookAuthor() {
 //     return this.Author
@@ -19,36 +19,52 @@
 // }
 
 class Animal {
-   constructor (name, sound) {
-       this.name = name
-      this.noOfLegs = 2
-      this.sound = sound
-   }
-     makeSound() {
-       console.log(this.sound, this.sound, this.sound)
-     }
-   }
-
-  const cat = new Animal('🐈', 'meow');
-  console.log(cat)
-cat.makeSound()
-  
-class Bird extends Animal {
-  constructor(name, sound, canFly) {
-    super(name, sound)
-    this.canFly = canFly
+  constructor(name, sound) {
+    this.name = name;
+    this.noOfLegs = 2;
+    this.sound = sound;
   }
-  fly () {
-    console.log('The', this.name, 'is flying')
+  makeSound() {
+    console.log(this.sound, this.sound, this.sound);
   }
 }
 
-const eagle = new Bird('🦅', 'quah','flying');
-console.log(eagle)
-eagle.makeSound()
-eagle.fly()
+const cat = new Animal("🐈", "meow");
+console.log(cat);
+cat.makeSound();
 
-const ostritch = new Bird('😍', 'brrrr', 'jumping')
-console.log(ostritch)
-ostritch.makeSound()
-ostritch.fly()
+class Bird extends Animal {
+  constructor(name, sound, canFly) {
+    super(name, sound);
+    this.canFly = canFly;
+  }
+  fly() {
+    console.log("The", this.name, "is flying");
+  }
+}
+
+const eagle = new Bird("🦅", "quah", "flying");
+console.log(eagle);
+eagle.makeSound();
+eagle.fly();
+
+const ostritch = new Bird("😍", "brrrr", "jumping");
+console.log(ostritch);
+ostritch.makeSound();
+ostritch.fly();
+
+class students {
+  constructor(firstName, middleName) {
+    this.firstName = firstName;
+    this.middleName = middleName;
+    this.faculty = "sciences";
+  }
+  fullName() {
+    console.log(
+      `My first name  is ${this.firstName} and my middlename name is ${this.middleName}`
+    );
+  }
+}
+
+const newStudent = new students("MUSA", "Muhammad");
+console.log(newStudent);
